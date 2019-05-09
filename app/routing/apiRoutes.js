@@ -18,9 +18,9 @@ module.exports = function(app) {
             var totalDifference = 0;
             newScores.forEach(function(score) {
                 totalDifference += Math.abs(parseInt(friend.scores) - parseInt(score))
-            })
+            });
             scoresArray.push(totalDifference);
-        })
+        });
 
         scoresArray.forEach(function(match) {
             if (match <= match[topMatch]) {
