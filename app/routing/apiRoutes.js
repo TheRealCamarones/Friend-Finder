@@ -33,6 +33,8 @@ module.exports = function (app) {
 
         res.json(bestFriend);
 
-        friendData.push(req.body);
+        var submittedFriend = req.body;
+        console.log(submittedFriend);
+        friendData.push(submittedFriend);
     })
 }

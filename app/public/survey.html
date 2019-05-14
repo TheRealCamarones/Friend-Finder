@@ -159,7 +159,7 @@
             <div class="modal-content">
                 <h1>Here's Your New Friend:</h1>
                 <h3 id="friendName"></h3>
-                <img id="friendPicture" src="" width=400px>
+                <img id="friendPicture" width=400px>
             </div>
         </div>
 
@@ -200,7 +200,7 @@
                     // use AJAX to send info the the API
                     $.post(currentURL + "/api/friends", createFriend, function (data) {
                         $("#friendName").text(data.name);
-                        $("#friendPicture").attr("src", data.image);
+                        $("#friendPicture").attr("src", data.photo);
                     });
                     
                     // then display the modal
