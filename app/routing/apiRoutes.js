@@ -1,34 +1,37 @@
 var friendData = require("../data/friends.js");
 
 
-module.exports = function(app) {
+module.exports = function (app) {
 
-    app.get("/api/friends", function(req, res) {
+    app.get("/api/friends", function (req, res) {
         res.json(friendData);
     })
 
-    app.post("/api/friends", function(req, res) {
-        
+    app.post("/api/friends", function (req, res) {
+
 
         var newScores = req.body.scores;
-        var topMatch = 0;
-        var scoresArray = [];
+        console.log(newScores);
+        var topMatch = 100;
+        var bestFriend;
 
-        friendData.forEach(function(friend) {
+        friendData.forEach(function (friend) {
+            console.log(friend);
             var totalDifference = 0;
-            newScores.forEach(function(score) {
-                totalDifference += Math.abs(parseInt(friend.scores) - parseInt(score))
-            });
-            scoresArray.push(totalDifference);
-        });
+            newScores.forEach(function (score) {
+                totalDifference += Math.abs(parseInt(friend.scores) - parseInt(score));
+                console.log(score);
 
-        scoresArray.forEach(function(match) {
-            if (match <= match[topMatch]) {
-                topMatch = match
-            }
-            var bestFriend = friendData[topMatch];
-            res.json(bestFriend);
-        })
+                if (totalDifference <= topMatch) {
+                    topMatch = totalDifference;
+                    bestFriend = friend;
+                }
+            });
+            console.log(totalDifference);
+        });
+        console.log(bestFriend);
+
+        res.json(bestFriend);
 
         friendData.push(req.body);
     })

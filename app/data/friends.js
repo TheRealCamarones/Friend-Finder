@@ -14,4 +14,6 @@ var friendData = [
         photo: "https://imgix.ranker.com/user_node_img/50071/1001408392/original/wilson-is-god-photo-u1?w=650&q=50&fm=pjpg&fit=crop&crop=faces",
         scores: [3, 2, 1, 3, 4, 2, 1, 5, 5, 1]
     }
-]
+];
+
+module.exports = friendData;

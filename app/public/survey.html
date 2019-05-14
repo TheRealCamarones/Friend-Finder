@@ -114,7 +114,7 @@
         <h1>Question 8</h1>
         <p>You rarely worry if you made a good impression on someone you met.</p>
         <div class="form-group">
-            <select class="form-control" id="question2">
+            <select class="form-control" id="question8">
                 <option value="1">1 - Strongly Disagree</option>
                 <option value="2">2 - Disagree</option>
                 <option value="3">3 - Meh</option>
@@ -184,24 +184,25 @@
                         name: $("#user-name").val().trim(),
                         image: $("#user-photo").val().trim(),
                         scores: [
-                            $("question1").val(),
+                            $("#question1").val(),
                             $("#question2").val(),
                             $("#question3").val(),
-                            $("question4").val(),
+                            $("#question4").val(),
                             $("#question5").val(),
-                            $("question6").val(),
+                            $("#question6").val(),
                             $("#question7").val(),
-                            $("question8").val(),
+                            $("#question8").val(),
                             $("#question9").val(),
-                            $("question10").val(),
+                            $("#question10").val(),
                         ]
                     };
                     var currentURL = window.location.origin;
                     // use AJAX to send info the the API
                     $.post(currentURL + "/api/friends", createFriend, function (data) {
-                        $("#user-name").text(data.name);
-                        $("#user-picture").attr("src", data.image);
+                        $("#friendName").text(data.name);
+                        $("#friendPicture").attr("src", data.image);
                     });
+                    
                     // then display the modal
                     $(".modal").modal();
                     // clear the form just for aesthetics
