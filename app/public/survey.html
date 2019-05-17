@@ -10,6 +10,8 @@
     <!-- link to bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- link to the css stylesheet -->
+    <link rel="stylesheet" href="./css/style.css" media="screen" title="no title">
     <!-- jquery link -->
     <script src="https://code.jquery.com/jquery-3.4.0.js"
         integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
@@ -24,6 +26,7 @@
 
 <body>
     <div class="container">
+        <div class="jumbotron">
         <h1>Survey Questions</h1>
         <hr>
         <h1>About You</h1>
@@ -144,22 +147,20 @@
                 <option value="5">5 - Strongly Agree</option>
             </select>
         </div>
+        </div>
 
         <button type="submit" class="btn btn-primary btn-lg btn-block modal-trigger" id="survey-submit">Submit
             Survey</button>
 
-
-        <footer>
-            <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/TheRealCamarones/Friend-Finder"
+            <p><a style="color:#FA1010" href="/api/friends">API Friends List</a> | <a style="color:#FA1010" href="https://github.com/TheRealCamarones/Friend-Finder"
                     target="_blank">GitHub Repo</a></p>
-        </footer>
 
         <!-- create the modal structure to display the match -->
         <div id="theModal" class="modal">
             <div class="modal-content">
                 <h1>Here's Your New Friend:</h1>
                 <h3 id="friendName"></h3>
-                <img id="friendPicture" width=400px>
+                <img id="friendPicture" width=400px height=400px>
             </div>
         </div>
 
@@ -168,16 +169,8 @@
         $(document).ready(function () {
             $("#survey-submit").on("click", function () {
                 var valid = true;
-                // this is where we make sure they at least input a name and "image link", can't let the user proceed without it
-                // function formValidation() {
-                //     valid = true;
-                //     // $(".validate").each(function () {
-                //     //     if ($(this).val() === "") {
-                //     //         valid = false;
-                //     //     }
-                //     // });
-
-                // }
+                // I wanted to validate, but it keeps breaking the whole thing
+                // it'll be added in here one day
 
                 if (valid === true) {
                     var createFriend = {
