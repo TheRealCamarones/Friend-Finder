@@ -7,6 +7,7 @@ var PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("app/public"));
 
 // give our server the routes in our file tree
 require("./app/routing/apiRoutes")(app);
